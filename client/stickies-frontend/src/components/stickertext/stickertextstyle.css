@@ -1,0 +1,30 @@
+.text-body {
+    color: #20B5FF;
+    -webkit-text-stroke: 0.2px rgb(0, 0, 0);
+    position: absolute;
+}
+
+.text-fill{
+    color:#FF20D6;
+    position: absolute;
+    left:1px;
+    top:1px;
+    transform: scale(1.01);
+}
+
+.text-outline{
+    color:#FF20D6;
+    position: absolute;
+    left:0.5px;
+    top:0.5px;
+    -webkit-text-stroke: 3px rgb(0, 0, 0);
+    transform: scale(1.03);
+}
+
+.text-whitebg{
+    color:#ffffff;
+    position: absolute;
+    -webkit-text-stroke: 5px rgb(255, 255, 255);
+    transform: scale(1.15, 1.27);
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 5);
+}
