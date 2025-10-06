@@ -3,7 +3,7 @@ import './stickertextstyle.css'
 export function StickerText({children, h1 = false}){
     return(
         <>
-        <div className="relative font-sticker flex">
+        <div className="relative font-sticker flex h-[35px] w-[125px]">
             <div className="absolute text-3xl text-nowrap">
                 {h1 ? (
                     <>

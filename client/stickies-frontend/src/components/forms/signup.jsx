@@ -12,8 +12,12 @@ const SignupSchema = Yup.object().shape({
         .email('Invalid email address')
         .required('Email is required'),
     password: Yup.string()
-        .min(6, 'Password must be at least 6 characters')
-        .required('Password is required'),
+        .required('Password is required')
+        .min(8, 'Password must be at least 8 characters long') // Minimum length requirement
+        .matches(/[A-Z]/, 'Password must contain at least one uppercase letter') // Capital letter
+        .matches(/[a-z]/, 'Password must contain at least one lowercase letter') // Lowercase letter (often implied with capital, but good to explicitly include)
+        .matches(/\d/, 'Password must contain at least one number') // Number
+        .matches(/[!@#$%^&*(),.?":{}|<>]/, 'Password must contain at least one special character'),
     confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
         .required('Confirm password is required'),
@@ -22,8 +26,6 @@ const SignupSchema = Yup.object().shape({
 export function SignupForm({children}){
     const initialValues = {
         username: '',
-        email: '',
-        password: '',
         confirmPassword: ''
     }
 
@@ -102,7 +104,7 @@ export function SignupForm({children}){
                              {errors.email && touched.email && (
                                  <div className="text-red-500 text-sm">{errors.email}</div>
                              )}
-                             
+
                              <Field 
                                  type="password" 
                                  name="password"
@@ -112,7 +114,12 @@ export function SignupForm({children}){
                              {errors.password && touched.password && (
                                  <div className="text-red-500 text-sm">{errors.password}</div>
                              )}
-                             
+                             <ul className="text-sm text-gray-500 list-disc list-inside">
+                                <li>Password must be at least 8 characters long</li>
+                                <li>Password must contain at least one uppercase letter</li>
+                                <li>Password must contain at least one number</li>
+                                <li>Password must contain at least one special character</li>
+                             </ul>
                              <Field 
                                  type="password" 
                                  name="confirmPassword"
