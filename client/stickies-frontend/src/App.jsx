@@ -1,6 +1,6 @@
 import {StickerText} from './components/stickertext/StickerText'
 import './App.css'
-
+import {LoginForm} from './components/forms/login'
 function App() {
 
 
@@ -9,7 +9,8 @@ function App() {
       <StickerText text="Stickes">
         stickes
       </StickerText>
-    
+      <LoginForm/>
+
     </>
   )
 }

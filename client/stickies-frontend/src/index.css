@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-
-
 @theme {
   --font-sticker: "Chewy", system-ui;
+  --font-poppins-light: "Poppins", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
 }
 
 body{
