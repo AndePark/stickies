@@ -4,7 +4,7 @@ import {
   FaHome, 
   FaUser, 
   FaCog, 
-  FaBell, 
+  FaShoppingCart, 
   FaSearch,
   FaBars,
   FaTimes 
@@ -37,62 +37,47 @@ export function Nav() {
             <button className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
               <FaSearch size={20} />
             </button>
+
           </div>
 
           {/* Center - Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <div className="relative h-10 flex items-center justify-center h-[35px] w-[125px] pl-[50%]">
+              <div className="relative h-10 flex justify-start h-[35px] w-[125px] pl-5 md:pl-[50%] items-start md:items-center">
                 <StickerText >Stickies</StickerText>
               </div>
             </Link>
           </div>
 
           {/* Right side - Navigation items */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="md:flex items-center space-x-4">
             {/* Home */}
             <Link 
               to="/" 
-              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
+              className="p-2 rounded-md text-gray-600 hidden md:block hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
               title="Home"
             >
               <FaHome size={20} />
             </Link>
 
-            {/* Notifications */}
+            {/* Cart */}
             <button className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors relative">
-              <FaBell size={20} />
-              {/* Notification badge */}
+              <FaShoppingCart size={20} />
+              {/* Cart badge */}
               <span className="absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full"></span>
             </button>
 
             {/* Profile */}
             <Link 
-   
-              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
+              to="/profile" 
+              className="hidden md:block p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
               title="Profile"
             >
               <FaUser size={20} />
             </Link>
 
-            {/* Settings */}
-            <Link 
-        
-              className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
-              title="Settings"
-            >
-              <FaCog size={20} />
-            </Link>
           </div>
 
-          {/* Mobile menu button for profile (when menu is closed) */}
-          <div className="md:hidden">
-            {!isMenuOpen && (
-              <button className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
-                <FaUser size={20} />
-              </button>
-            )}
-          </div>
         </div>
 
         {/* Mobile menu */}
@@ -107,12 +92,7 @@ export function Nav() {
                 Home
               </Link>
               
-              <button className="flex items-center w-full px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors">
-                <FaBell className="mr-3" size={18} />
-                Notifications
-                <span className="ml-auto h-2 w-2 bg-red-500 rounded-full"></span>
-              </button>
-              
+            
               <Link
                 to="/profile"
                 className="flex items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-colors"

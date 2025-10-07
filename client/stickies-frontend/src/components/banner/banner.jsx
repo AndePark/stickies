@@ -18,17 +18,29 @@ export function Banner(){
             opacity: 0,
             y: 50,
             scale: 0.8
+        })  
+        gsap.set([textRef.current], {
+            opacity: 0,
+            y: -100,
+            
         })
 
         // Create timeline for staggered animations
         const tl = gsap.timeline({ delay: 0.3 })
+
+        tl.to(textRef.current, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "back.out(1)"
+        }, "-=0.3")
 
         // Animate image with slight delay
         tl.to(imageRef.current, {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.8,
+            duration: 1,
             ease: "back.out(1.7)"
         }, "-=0.4")
 
@@ -81,7 +93,7 @@ export function Banner(){
                 ref={textRef}
                 className="col-span-1 md:col-start-1 md:col-span-5 lg:col-start-2 lg:col-span-5 flex flex-col justify-center  row-start-1 row-span-2 px-4 md:px-2 lg:px-0 order-1 md:order-1 z-10"
             >
-                <h1 className="font-poppins-light text text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center md:text-left mb-4 md:mb-6">
+                <h1 className="font-poppins-light leading-tight text text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center md:text-left mb-4 md:mb-6">
                     Express Yourself With Custom Stickers
                 </h1>
                 <p className="font-poppins-light text-sm sm:text-base md:text-sm lg:text-base text-center md:text-left mb-6 md:mb-4 leading-relaxed">
