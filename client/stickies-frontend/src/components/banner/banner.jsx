@@ -105,7 +105,7 @@ export function Banner(){
                     ref={buttonsRef}
                     className="cta-buttons flex flex-col sm:flex-row gap-3 sm:gap-x-4 justify-center md:justify-start order-2 md:order-3"
                 >
-                    <button className="font-poppins-light text-sm sm:text-base px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors">
+                    <button className=" font-poppins-light text-sm sm:text-base px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors">
                         Get Started
                     </button>
                     <button className="font-poppins-light text-sm sm:text-base px-6 py-3 border-2 border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white rounded-lg transition-colors">
