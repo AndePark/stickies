@@ -19,7 +19,7 @@ export function Nav() {
   }
 
   return (
-    <nav className="bg-white   border-gray-200 sticky top-0 z-50">
+    <nav className="bg-white border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
@@ -68,7 +68,7 @@ export function Nav() {
 
             {/* Profile */}
             <Link 
-              to="/profile" 
+   
               className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
               title="Profile"
             >
@@ -77,7 +77,7 @@ export function Nav() {
 
             {/* Settings */}
             <Link 
-              to="/settings" 
+        
               className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 transition-colors"
               title="Settings"
             >
