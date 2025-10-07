@@ -14,16 +14,67 @@ export function LoginForm({children}){
         password: ''
     }
 
-    const handleSubmit = (values, { setSubmitting }) => {
-        console.log(values);
-        setSubmitting(false);
+    const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
+        try {
+            console.log('Submitting login:', values);
+            
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(values)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Login successful
+                console.log('Login successful:', data);
+                
+                // Handle successful login
+                if (data.token) {
+                    // Store token in localStorage or cookies
+                    localStorage.setItem('authToken', data.token);
+                }
+                
+                if (data.user) {
+                    // Store user data
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                }
+                
+                // Redirect to dashboard or home page
+                window.location.href = '/';
+                
+            } else {
+                // Login failed - handle errors
+                console.error('Login failed:', data);
+                
+                if (data.errors) {
+                    // Set field-specific errors
+                    Object.keys(data.errors).forEach(field => {
+                        setFieldError(field, data.errors[field]);
+                    });
+                } else if (data.message) {
+                    // Set general error message
+                    setFieldError('general', data.message);
+                } else {
+                    setFieldError('general', 'Login failed. Please try again.');
+                }
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+            setFieldError('general', 'Network error. Please check your connection.');
+        } finally {
+            setSubmitting(false);
+        }
     }
 
     return(
         <>
             <div className="bg-white z-[5] h-screen w-screen backdrop-opacity-500"></div>
             <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
-                <div className="bg-white rounded-2xl p-8 w-full max-w-md relative shadow-2xl">
+                <div className="bg-white rounded-2xl p-8  max-w-md relative shadow-2xl">
 
                     {/* Close button */}
                     <button className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors" onClick={() => {window.history.back()}}>
@@ -70,8 +121,14 @@ export function LoginForm({children}){
                         validationSchema={LoginSchema}
                         onSubmit={handleSubmit}
                     >
-                        {({errors, touched, isSubmitting}) => (
-                            <Form className="flex flex-col gap-4 mb-4">
+                     {({errors, touched, isSubmitting}) => (
+                         <Form className="flex flex-col gap-4 mb-4">
+                             {/* General error message */}
+                             {errors.general && (
+                                 <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                                     {errors.general}
+                                 </div>
+                             )}
                                 <Field 
                                     type="text" 
                                     name="username"
