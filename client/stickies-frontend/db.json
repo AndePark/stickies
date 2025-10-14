@@ -1,0 +1,6 @@
+{
+  "products": [
+    { "id": 1, "name": "Smiley Sticker", "price": 3.99, "imgsrc": "/images/smiley.png", "desc":"A sticker of a yellow face"},
+    { "id": 2, "name": "Robot Sticker", "price": 4.49, "imgsrc": "/images/robot.png", "desc":"A sticker of a robot"}
+  ]
+}

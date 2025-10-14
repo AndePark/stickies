@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { StickerText } from '../../stickertext/StickerText'
+import { StickerText } from '../../StickerText/StickerText'
 import { 
   FaHome, 
   FaUser, 

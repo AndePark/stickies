@@ -1,4 +1,4 @@
-import {StickerText} from '../stickertext/StickerText'
+import {StickerText} from '../StickerText/StickerText'
 import { Formik, Form, Field} from 'formik'
 import * as Yup from 'yup'
 import { Link } from 'react-router-dom'
@@ -18,6 +18,7 @@ export function LoginForm({children}){
         try {
             console.log('Submitting login:', values);
             
+            // fetch to backend port?
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
@@ -74,7 +75,7 @@ export function LoginForm({children}){
         <>
             <div className="bg-white z-[5] h-screen w-screen backdrop-opacity-500"></div>
             <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
-                <div className="bg-white rounded-2xl p-8  max-w-md relative shadow-2xl">
+                <div className="bg-white rounded-2xl p-8 w-full max-w-md relative shadow-2xl">
 
                     {/* Close button */}
                     <button className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors" onClick={() => {window.history.back()}}>

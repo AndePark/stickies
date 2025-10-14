@@ -1,4 +1,4 @@
-import {StickerText} from '../stickertext/StickerText'
+import {StickerText} from '../StickerText/StickerText'
 import {useState} from 'react'
 import { useFormik, Formik, Form, Field} from 'formik'
 import * as Yup from 'yup'
