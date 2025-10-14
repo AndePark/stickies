@@ -7,16 +7,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import {Banner} from './components/Banner/Banner'
 import {StickerGalleryItem} from './components/StickerProduct/StickerGalleryItem'
 import {useEffect, useState} from 'react'
-import {fetchProducts} from './api/products'
-
+import {getProducts} from './api/products'
+import { StickerDetail } from './components/StickerProduct/StickerDetail'
 
 function App() {
   const [products, setProducts] = useState([])
 
   useEffect(()=>{
-    fetchProducts('products').then(data=> {
-      setProducts(data)
-      console.log(data)}
+    getProducts().then( data=> setProducts(data)
     ).catch(err=> console.error(err))
   },[])
 
@@ -38,13 +36,13 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row flex-wrap gap-9">
+              <div className="flex flex-row flex-wrap gap-9 mx-14 my-20">
                 {products.map(product=>(
-                  <StickerGalleryItem product={product}/>
+                  <StickerGalleryItem product={product} key={product.id}/>
                 ))
                 }
               </div>
-
+              <div className="h-[100vh]"></div>
 
             </>
           } />
@@ -58,6 +56,11 @@ function App() {
               <SignupForm/>
             </>
           } />
+          <Route path="/product/:id" element={
+            <>
+              <StickerDetail/>
+            </>
+          }/>
         </Routes>
       </div>
     </Router>

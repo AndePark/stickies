@@ -1,8 +1,11 @@
-const BASE_URL = "http://localhost:4000";
 
-export async function fetchProducts(endpoint){
-    const res = await fetch(`${BASE_URL}/${endpoint}`);
-    if(!res.ok) throw new Error(`Failed to fetch ${endpoint}`)
+import { fetchData } from "./api";
 
-    return res.json();
+export function getProducts() {
+  return fetchData("products");
+}
+
+export function getProductById(id){
+    return fetchData(`products/${id}`)
+    
 }
