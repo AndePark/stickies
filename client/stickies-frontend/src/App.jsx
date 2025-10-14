@@ -36,7 +36,10 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row flex-wrap gap-9 mx-14 my-20">
+              <div className="mx-14 mt-8">
+              <StickerText h1={false}> Gallery </StickerText>
+              </div>
+              <div className="flex flex-row flex-wrap gap-9 mx-14 mb-20 mt-9">
                 {products.map(product=>(
                   <StickerGalleryItem product={product} key={product.id}/>
                 ))
