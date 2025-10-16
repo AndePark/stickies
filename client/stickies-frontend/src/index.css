@@ -4,7 +4,27 @@
   --font-sticker: "Chewy", system-ui;
   --font-poppins-light: "Poppins", sans-serif;
   --font-open-sans: "Open Sans", sans-serif;
+
+  --color-lightblue: #08dee6;
+  --color-pink: #FF20D6;
 }
+
+/* target specific html tags */
+@layer base{
+
+}
+/* Target Components ie. cards, buttons, etc */
+@layer components{
+  .add-cart-button{
+    @apply text-lg font-semibold bg-lightblue px-6 py-2 rounded-xl bg-gradient-to-r from-lightblue to-pink hover:from-cyan-300 
+                                                                                                    hover:to-pink-600 focus:ring-purple-300 active:bg-blue-700
+                                                                                                    shadow-md transition duration-300 ease-in-out
+                                                                                                    transform hover:scale-105;
+  }
+
+}
+
+
 
 body{
     background-color: black;

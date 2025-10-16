@@ -8,16 +8,16 @@ export function StickerText({children, h1 = false}){
                 {h1 ? (
                     <>
                         <h1 className="text-whitebg ">{children}</h1>
-                        <p className="text-outline ">{children}</p>
-                        <p className="text-fill">{children}</p> 
-                        <p className="text-body">{children}</p>
+                        <p className="text-outline text-pink">{children}</p>
+                        <p className="text-fill  text-pink">{children}</p> 
+                        <p className="text-body text-lightblue">{children}</p>
                     </>
                 ):(
                 <> 
                     <p className="text-whitebg ">{children}</p>
-                    <p className="text-outline ">{children}</p>
-                    <p className="text-fill">{children}</p> 
-                    <p className="text-body">{children}</p>
+                    <p className="text-outline  text-pink">{children}</p>
+                    <p className="text-fill  text-pink">{children}</p> 
+                    <p className="text-body text-lightblue">{children}</p>
                 </>
                 )
                 }
